@@ -1,4 +1,4 @@
-FROM ubuntu:latest as check-crlf
+FROM ubuntu:latest as check-mixed-line-endings
 
 WORKDIR /app
 COPY entrypoint.sh /

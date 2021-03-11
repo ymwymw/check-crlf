@@ -3,9 +3,10 @@
 
 mkdir -p "temp"
 
-printf "\r\n" > "temp/bad"
-printf "\r\n" > "temp/ignored"
-printf "\n" > "temp/good"
+printf "line1\r\nline2\nline3" > "temp/bad"
+printf "line1\r\nline2\nline3" > "temp/ignored"
+printf "\n" > "temp/good-lf"
+printf "\r\n" > "temp/good-crlf"
 
 ./entrypoint.sh . "temp/ignored"
 

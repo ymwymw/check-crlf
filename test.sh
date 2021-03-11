@@ -5,8 +5,8 @@ mkdir -p "temp"
 
 printf "line1\r\nline2\nline3" > "temp/bad"
 printf "line1\r\nline2\nline3" > "temp/ignored"
-printf "\n" > "temp/good/lf"
-printf "\r\n" > "temp/good/crlf"
+printf "\n" > "temp/good-lf"
+printf "\r\n" > "temp/good-crlf"
 
 ./entrypoint.sh . "temp/ignored"
 

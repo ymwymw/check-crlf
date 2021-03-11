@@ -11,7 +11,7 @@ FILES_TYPES="$(\
     find . ! -path "./.git/*" -not -type d  -exec file "{}" ";"
 )"
 
-FILES_WITH_CRLF=$(echo "$FILES_TYPES" | grep " CRLF, LF " | cut -d " " -f 1 | cut -d ":" -f 1)
+FILES_WITH_CRLF=$(echo "$FILES_TYPES" | grep " CRLF, LF " | cut -d ":" -f 1)
 
 for word in $2
 do

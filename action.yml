@@ -1,6 +1,6 @@
-name: check-crlf
+name: check-mixed-line-endings
 author: erclu
-description: "Checks for non-binary files with CRLF endings in given path"
+description: "Checks for non-binary files with mixed line endings (CRLF and LF) in given path"
 
 branding:
   icon: file-text

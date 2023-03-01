@@ -9,10 +9,10 @@ printf "\n" > "temp/good-lf"
 printf "\r\n" > "temp/good-crlf"
 printf $'\t' > "temp/tab"
 
-grep $'\t' temp/good-crlf
-grep $'\t' temp/tab
-grep -P "\t" temp/good-crlf
-grep -P "\t" temp/tab
+printf $(echo grep $'\t' temp/good-crlf)
+printf $(echo grep $'\t' temp/tab)
+printf $(echo grep -P "\t" temp/good-crlf)
+printf $(echo grep -P "\t" temp/tab)
 
 ./entrypoint.sh . "temp/ignored"
 

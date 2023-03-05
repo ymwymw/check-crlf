@@ -18,18 +18,21 @@ do
     FILES_WITH_MIXED=$(echo "$FILES_WITH_MIXED" | grep "^./$word" --invert-match)
 done
 
+    grep -rnI --exclude "*.x*" --exclude "*.Designer.*" --exclude "*.sql" --exclude "*.htm*" --exclude "*.resx" --exclude "*.wsdl" --exclude "*.aff" --exclude "*.sln" --exclude-dir "bin" --exclude-dir "obj" $'\t' "src/core/" > results.txt
+    cat results.txt
+    if [ ! -s "results.txt" ]
+    then
+        printf "No Tabs Found"
+        exit 0
+    else
+        printf "Found Tabs"
+        exit 1
+    fi
+
 if [ -z "$FILES_WITH_MIXED" ]
 then
     printf "${BOLD_GREEN}No files with mixed line endings (CRLF and LF) found.${NC}"
-    grep -rnI --exclude "*.x*" --exclude "*.Designer.*" --exclude "*.sql" --exclude "*.htm*" --exclude "*.resx" --exclude "*.wsdl" --exclude "*.aff" --exclude "*.sln" --exclude-dir "bin" --exclude-dir "obj
-" $'\t' "src/core/" > results.txt
-    cat results.txt
-    if [ ! -s "results.txt" ]; 
-    then
-        exit 0
-    else
-        exit 1
-    fi
+
 else
     NR_FILES=$(echo "$FILES_WITH_MIXED" | wc -l)
     printf "${BOLD_RED}Found $NR_FILES files with ixed line endings (CRLF and LF).${NC}"

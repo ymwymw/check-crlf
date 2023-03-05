@@ -9,7 +9,7 @@ printf "\n" > "temp/good-lf"
 printf "\r\n" > "temp/good-crlf"
 printf $'\t' > "temp/tab"
 
-grep -rnI --exclude "*.x*" --exclude "*.Designer.*" --exclude "*.sql" --exclude "*.htm*" --exclude "*.resx" --exclude "*.wsdl" --exclude "*.aff" --exclude "*.sln" --exclude-dir ".git" --exclude-dir "node_modules" --exclude-dir "bin" --exclude-dir "obj" $'\t' "temp/tab") > results.txt
+grep -rnI --exclude "*.x*" --exclude "*.Designer.*" --exclude "*.sql" --exclude "*.htm*" --exclude "*.resx" --exclude "*.wsdl" --exclude "*.aff" --exclude "*.sln" --exclude-dir ".git" --exclude-dir "node_modules" --exclude-dir "bin" --exclude-dir "obj" $'\t' "temp/tab" > results.txt
 cat results.txt
 
 ./entrypoint.sh . "temp/ignored"

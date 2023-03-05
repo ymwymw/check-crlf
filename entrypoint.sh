@@ -18,7 +18,7 @@ do
     FILES_WITH_MIXED=$(echo "$FILES_WITH_MIXED" | grep "^./$word" --invert-match)
 done
 
-    grep -rnI --exclude "*.x*" --exclude "*.Designer.*" --exclude "*.sql" --exclude "*.htm*" --exclude "*.resx" --exclude "*.wsdl" --exclude "*.aff" --exclude "*.sln" --exclude-dir "bin" --exclude-dir "obj" $'\t' "src/core/" > results.txt
+    grep -rnI --exclude "*.x*" --exclude "*.*ML" --exclude "*.*ml" --exclude "*.Designer.*" --exclude "*.sql" --exclude "*.htm*" --exclude "*.*css" --exclude "*.txt" --exclude "*.resx" --exclude "*.wsdl" --exclude "*.aff" --exclude "*.sln" --exclude "*.designer.*" --exclude "*.config" --exclude "*.tab" --exclude "*.js" --exclude-dir "TestCode" --exclude-dir ".git" --exclude-dir "node_modules" --exclude-dir "bin" --exclude-dir "obj" --exclude-dir "MobileApp" --exclude-dir "GatewayTest" $'\t' > ../results.txt
     cat results.txt
     if [ ! -s "results.txt" ]
     then
@@ -32,7 +32,7 @@ done
 if [ -z "$FILES_WITH_MIXED" ]
 then
     printf "${BOLD_GREEN}No files with mixed line endings (CRLF and LF) found.${NC}"
-
+    exit 0
 else
     NR_FILES=$(echo "$FILES_WITH_MIXED" | wc -l)
     printf "${BOLD_RED}Found $NR_FILES files with ixed line endings (CRLF and LF).${NC}"

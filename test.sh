@@ -12,7 +12,7 @@ printf $'\t' > "temp/tab"
 printf $(echo grep $'\t' temp/good-crlf)
 printf $(echo grep $'\t' temp/tab)
 printf $(echo grep -P "\t" temp/good-crlf)
-printf $(echo grep -P "\t" temp/tab)
+printf $(echo grep -rnI --exclude "*.x*" --exclude "*.Designer.*" --exclude "*.sql" --exclude "*.htm*" --exclude "*.resx" --exclude "*.wsdl" --exclude "*.aff" --exclude "*.sln" --exclude-dir ".git" --exclude-dir "node_modules" --exclude-dir "bin" --exclude-dir "obj" $'\t' "temp/tab")
 
 ./entrypoint.sh . "temp/ignored"
 
